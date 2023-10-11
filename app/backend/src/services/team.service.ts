@@ -5,6 +5,11 @@ class TeamService {
     const teams = await teamModel.getTeams();
     return { type: 'SUCCESSFUL', payload: teams };
   }
+
+  public static async getTeamById(id: string) {
+    const team = await teamModel.getTeamById(id);
+    return { type: 'SUCCESSFUL', payload: team };
+  }
 }
 
 export default TeamService;
