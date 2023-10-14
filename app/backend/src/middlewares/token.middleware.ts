@@ -11,7 +11,7 @@ const tokenValidationMiddleware = (req: Request, res: Response, next: NextFuncti
   const [, token] = authHeader.split(' ');
 
   if (!token) {
-    return res.status(401).json({ message: 'Token must be provided' });
+    return res.status(401).json({ message: 'Token must be a valid token' });
   }
 
   const decoded = Token.decodeToken(token);
