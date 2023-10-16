@@ -22,6 +22,27 @@ class MatchesModel {
     });
     return matches;
   }
+
+  public async findAllMatchesInProgress(inProgress: boolean) {
+    const matches = await this.matchesModel.findAll({
+      where: {
+        inProgress,
+      },
+      include: [
+        {
+          model: Team,
+          as: 'homeTeam',
+          attributes: ['teamName'],
+        },
+        {
+          model: Team,
+          as: 'awayTeam',
+          attributes: ['teamName'],
+        },
+      ],
+    });
+    return matches;
+  }
 }
 
 export default MatchesModel;
