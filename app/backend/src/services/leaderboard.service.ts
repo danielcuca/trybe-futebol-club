@@ -4,17 +4,18 @@ import UtilsLeaderBoard from '../utils/leaderBoardUtils';
 class LeaderBoardService {
   public static async getLeaderBoardHome() {
     const teamWithMatches = await teamModel.getLeaderboard();
-    console.log(teamWithMatches);
-    const teamWithMatchesToJSON = teamWithMatches.map((team: any) => {
-      const { teamName, homeTeam } = team.toJSON();
-      return { teamName, homeTeam };
+
+    const teams = teamWithMatches.map((team: any) => {
+      const leaderBoard = new UtilsLeaderBoard();
+      const formatedLeaderBoard = leaderBoard.leaderboardTable(team.teamName, team.homeTeam);
+      return formatedLeaderBoard;
     });
-    const leaderBoard = new UtilsLeaderBoard();
-    const teams = teamWithMatchesToJSON.map((team: any) => {
-      const { teamName, homeTeam } = team;
-      return leaderBoard.leaderboardTable(teamName, homeTeam);
-    });
-    return { payload: teams };
+
+    const sortedTeams = teams
+      .sort((a, b) => b.goalsFavor - a.goalsFavor)
+      .sort((a, b) => b.goalsBalance - a.goalsBalance)
+      .sort((a, b) => b.totalPoints - a.totalPoints);
+    return { payload: sortedTeams };
   }
 }
 

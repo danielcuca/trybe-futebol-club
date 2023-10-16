@@ -13,11 +13,6 @@ export interface ILeaderboard {
   homeTeam: IHomeTeam[]
 }
 
-export interface LeaderboardResponse {
-  status: string;
-  data: ILeaderboard[];
-}
-
 export interface LeaderboardDataTeams {
   name: string;
   totalPoints: number;
