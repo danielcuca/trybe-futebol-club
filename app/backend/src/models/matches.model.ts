@@ -64,6 +64,22 @@ class MatchesModel {
     });
     return { homeTeamGoals, awayTeamGoals };
   }
+
+  public async createMatch(
+    homeTeamId: number,
+    awayTeamId: number,
+    homeTeamGoals: number,
+    awayTeamGoals: number,
+  ) {
+    const match = await this.matchesModel.create({
+      homeTeamId,
+      awayTeamId,
+      homeTeamGoals,
+      awayTeamGoals,
+      inProgress: true,
+    });
+    return match;
+  }
 }
 
 export default MatchesModel;

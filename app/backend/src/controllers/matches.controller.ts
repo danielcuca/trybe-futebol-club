@@ -23,4 +23,14 @@ export default class MatchesController {
       .updateProgressMatch(Number(id), homeTeamGoals, awayTeamGoals);
     res.status(200).json(payload);
   };
+
+  public createMatch = async (req: Request, res: Response) => {
+    const { homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals } = req.body;
+    const { type, payload } = await this.matchesService
+      .createMatch(homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals);
+    if (type === 'NOT_FOUND') {
+      return res.status(404).json(payload);
+    }
+    res.status(201).json(payload);
+  };
 }

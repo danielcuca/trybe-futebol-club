@@ -10,7 +10,7 @@ class TeamController {
 
   public static async getTeamId(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
-    const { payload } = await teamService.getTeamById(id);
+    const { payload } = await teamService.getTeamById(Number(id));
     return res.status(200).json(payload);
   }
 }

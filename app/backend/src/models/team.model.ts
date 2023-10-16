@@ -6,7 +6,7 @@ class TeamModel {
     return teams;
   }
 
-  public static async getTeamById(id: string) {
+  public static async getTeamById(id: number) {
     const team = await Team.findByPk(id);
     return team;
   }
