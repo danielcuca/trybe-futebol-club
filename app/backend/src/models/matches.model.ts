@@ -43,6 +43,15 @@ class MatchesModel {
     });
     return matches;
   }
+
+  public async finishMatch(id: number) {
+    const match = await this.matchesModel.findByPk(id);
+    if (!match) {
+      throw new Error('Match not found');
+    }
+    await match.update({ inProgress: false });
+    return { message: 'Finished' };
+  }
 }
 
 export default MatchesModel;

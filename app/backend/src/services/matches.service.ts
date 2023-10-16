@@ -12,6 +12,11 @@ class matchesService {
     const payload = await this.matchesModel.findAllMatches();
     return { payload };
   }
+
+  public async finishMatch(id: number) {
+    const payload = await this.matchesModel.finishMatch(id);
+    return { payload };
+  }
 }
 
 export default matchesService;
