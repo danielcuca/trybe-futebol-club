@@ -15,4 +15,12 @@ export default class MatchesController {
     const { payload } = await this.matchesService.finishMatch(Number(id));
     res.status(200).json(payload);
   };
+
+  public updateProgressMatch = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { homeTeamGoals, awayTeamGoals } = req.body;
+    const { payload } = await this.matchesService
+      .updateProgressMatch(Number(id), homeTeamGoals, awayTeamGoals);
+    res.status(200).json(payload);
+  };
 }

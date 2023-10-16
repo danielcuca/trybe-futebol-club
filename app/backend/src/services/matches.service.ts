@@ -17,6 +17,11 @@ class matchesService {
     const payload = await this.matchesModel.finishMatch(id);
     return { payload };
   }
+
+  public async updateProgressMatch(id: number, homeTeamGoals: number, awayTeamGoals: number) {
+    const payload = await this.matchesModel.updateProgressMatch(id, homeTeamGoals, awayTeamGoals);
+    return { payload };
+  }
 }
 
 export default matchesService;

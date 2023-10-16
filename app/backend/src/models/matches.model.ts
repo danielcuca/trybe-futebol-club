@@ -52,6 +52,18 @@ class MatchesModel {
     await match.update({ inProgress: false });
     return { message: 'Finished' };
   }
+
+  public async updateProgressMatch(id: number, homeTeamGoals: number, awayTeamGoals: number) {
+    const match = await this.matchesModel.findByPk(id);
+    if (!match) {
+      throw new Error('Match not found');
+    }
+    await match.update({
+      homeTeamGoals,
+      awayTeamGoals,
+    });
+    return { homeTeamGoals, awayTeamGoals };
+  }
 }
 
 export default MatchesModel;
