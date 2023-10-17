@@ -18,9 +18,20 @@ const invalidUser = {
   password: 'passwordBcrypt'
 };
 
+const invalidUserPassword = {
+  email: 'admin@admin.com',
+  password: 'invalidBcrypt'
+};
+
+
 const invalidUserWhitPasswordLength = {
   email: 'notExist@admin.com',
   password: 'passw'
+};
+
+const invalidEmail = {
+  email: '@admin.com',
+  password: 'passwordBcrypt'
 };
 
 const userWithoutEmail = {
@@ -53,4 +64,4 @@ const loginError = { message: "All fields must be filled" };
 const loginError2 = { message: "Invalid email or password" };
 
 
-export default { userModel, validUser, invalidUser, invalidUserWhitPasswordLength, userWithoutEmail, userWithoutPassword, userWithPasswordInvaldid,loginSuccessful, payload, loginError, loginError2 };
+export default { userModel, validUser, invalidUser, invalidUserWhitPasswordLength, userWithoutEmail, userWithoutPassword, userWithPasswordInvaldid,loginSuccessful, payload, loginError, loginError2, invalidEmail, invalidUserPassword };
