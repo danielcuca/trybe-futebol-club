@@ -42,16 +42,6 @@ const userWithoutPassword = {
   email: "validemail@gmail.com",
 };
 
-const userWithPasswordInvaldid = {
-  email: "validemail@gmail.com",
-  password: "passwordInvalid",
-};
-
-
-const loginSuccessful = {
-  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjU0NTI3MTg5fQ.XS_9AA82iNoiVaASi0NtJpqOQ_gHSHhxrpIdigiT-fc"
-};
-
 const payload = {
   id: 1,
   role: "admin",
@@ -64,4 +54,4 @@ const loginError = { message: "All fields must be filled" };
 const loginError2 = { message: "Invalid email or password" };
 
 
-export default { userModel, validUser, invalidUser, invalidUserWhitPasswordLength, userWithoutEmail, userWithoutPassword, userWithPasswordInvaldid,loginSuccessful, payload, loginError, loginError2, invalidEmail, invalidUserPassword };
+export default { userModel, validUser, invalidUser, invalidUserWhitPasswordLength, userWithoutEmail, userWithoutPassword, payload, loginError, loginError2, invalidEmail, invalidUserPassword };
